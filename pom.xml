@@ -39,15 +39,30 @@
                 <version>0.8.5</version>
                 <executions>
                     <execution>
-                        <id>prepare-agent-15165</id>
-<!--                        <phase>initialize</phase>-->
+                        <id>prepare-agent</id>
+                        <phase>initialize</phase>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>report-4546531</id>
-<!--                        <phase>verify</phase>-->
+                        <rules>
+                            <rule>
+                                <element>CLASS</element>
+                                <excludes>
+                                    <exclude>*Test</exclude>
+                                </excludes>
+                                <limits>
+                                    <limit>
+                                        <counter>LINE</counter>
+                                        <value>COVEREDRATIO</value>
+                                        <minimum>50%</minimum>
+                                    </limit>
+                                </limits>
+                            </rule>
+                        </rules>
+                        <id>report</id>
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -57,4 +72,3 @@
         </plugins>
     </build>
 </project>
-
